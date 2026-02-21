@@ -1,0 +1,184 @@
+/* Stream card - temas: blue (default), light, dark (?style=light | dark) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 420px;
+  max-width: 100%;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* Una sola cuadrícula: encabezados y filas comparten las mismas columnas */
+.race-grid {
+  display: grid;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.race-grid.cols-3 {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.race-grid.cols-4 {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.race-grid-cell {
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.race-grid-head {
+  padding: 4px 8px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Las filas no crean nivel extra: sus celdas entran en la misma grid */
+.race-grid-row {
+  display: contents;
+}
+
+.race-grid-row .race-grid-loading {
+  background: transparent;
+}
+
+.race-grid-cell.race-grid-loading {
+  grid-column: 1 / -1;
+}
+
+.race-grid-loading {
+  text-align: center;
+  font-style: italic;
+  padding: 16px;
+}
+
+/* ---------- Theme: blue (default) ---------- */
+body.style-blue {
+  color: #e8ecf0;
+}
+
+body.style-blue .card {
+  background: linear-gradient(160deg, #0f1729 0%, #1a2744 50%, #0d1525 100%);
+  border: 1px solid #2a3a5c;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.style-blue .race-grid-cell {
+  border-bottom: 1px solid rgba(42, 58, 92, 0.6);
+}
+
+body.style-blue .race-grid-head {
+  background: rgba(30, 50, 80, 0.5);
+  color: #8fa3bf;
+  border-bottom: 1px solid #2a3a5c;
+}
+
+body.style-blue .race-grid-row:nth-child(even) .race-grid-cell {
+  background: rgba(20, 35, 55, 0.35);
+}
+
+body.style-blue .race-grid-row:hover .race-grid-cell {
+  background: rgba(40, 65, 100, 0.25);
+}
+
+body.style-blue .race-grid-loading {
+  color: #6b7d94;
+}
+
+body.style-blue .race-grid-cell.improved { color: #4ade80; }
+body.style-blue .race-grid-cell.worsened { color: #f87171; }
+body.style-blue .race-grid-cell.forfeit { color: #fbbf24; font-style: italic; }
+
+/* ---------- Theme: light ---------- */
+body.style-light {
+  color: #1a1f2e;
+}
+
+body.style-light .card {
+  background: linear-gradient(160deg, #f0f4f8 0%, #e2e8f0 50%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.style-light .race-grid-cell {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.style-light .race-grid-head {
+  background: rgba(148, 163, 184, 0.35);
+  color: #475569;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+body.style-light .race-grid-row:nth-child(even) .race-grid-cell {
+  background: rgba(226, 232, 240, 0.4);
+}
+
+body.style-light .race-grid-row:hover .race-grid-cell {
+  background: rgba(203, 213, 225, 0.5);
+}
+
+body.style-light .race-grid-loading {
+  color: #64748b;
+}
+
+body.style-light .race-grid-cell.improved { color: #15803d; }
+body.style-light .race-grid-cell.worsened { color: #b91c1c; }
+body.style-light .race-grid-cell.forfeit { color: #a16207; font-style: italic; }
+
+/* ---------- Theme: dark ---------- */
+body.style-dark {
+  color: #e2e8f0;
+}
+
+body.style-dark .card {
+  background: linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 50%, #171717 100%);
+  border: 1px solid #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+body.style-dark .race-grid-cell {
+  border-bottom: 1px solid #262626;
+}
+
+body.style-dark .race-grid-head {
+  background: rgba(38, 38, 38, 0.9);
+  color: #a1a1aa;
+  border-bottom: 1px solid #333;
+}
+
+body.style-dark .race-grid-row:nth-child(even) .race-grid-cell {
+  background: rgba(23, 23, 23, 0.6);
+}
+
+body.style-dark .race-grid-row:hover .race-grid-cell {
+  background: rgba(38, 38, 38, 0.7);
+}
+
+body.style-dark .race-grid-loading {
+  color: #71717a;
+}
+
+body.style-dark .race-grid-cell.improved { color: #22c55e; }
+body.style-dark .race-grid-cell.worsened { color: #ef4444; }
+body.style-dark .race-grid-cell.forfeit { color: #eab308; font-style: italic; }
