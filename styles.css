@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Calibri', system-ui, sans-serif;
   background: transparent;
   min-height: 100vh;
   display: flex;
@@ -18,7 +18,7 @@ body {
 .card {
   border-radius: 10px;
   overflow: hidden;
-  width: 420px;
+  width: 380px;
   max-width: 100%;
 }
 
@@ -34,11 +34,11 @@ body {
 }
 
 .race-grid.cols-3 {
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
 }
 
 .race-grid.cols-4 {
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
 }
 
 .race-grid-cell {

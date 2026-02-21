@@ -72,8 +72,8 @@ function buildRow(racer, raceStatus) {
 
   if (raceStatus === 'Completed') {
     const rankDisplay = racer.rank_change != null && racer.rank_change !== 0
-      ? `${racer.rank} (${racer.rank_change > 0 ? '+' : ''}${-racer.rank_change})`
-      : String(racer.rank ?? '—');
+      ? `${racer.rank} (${racer.rank_change > 0 ? '↓' : '↑'}${Math.abs(racer.rank_change)})`
+      : String(racer.rank ?? '');
     const rankCell = createCell(rankDisplay);
     if (racer.rank_change != null) {
       if (racer.rank_change < 0) rankCell.classList.add('improved');
